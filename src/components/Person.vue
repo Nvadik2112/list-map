@@ -6,7 +6,7 @@
     <label>Организация
       <input v-model="currentPerson.company" type="text">
     </label>
-    <label> Подразделение
+    <label>Подразделение
       <input v-model="currentPerson.department" type="text">
     </label>
     <label>Должность
@@ -34,7 +34,6 @@ export default {
     apply() {
       this.list[this.personId] = this.currentPerson;
       localStorage.list = JSON.stringify(this.list)
-
       this.$router.push(`/`);
     }
   },

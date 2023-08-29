@@ -13,9 +13,9 @@
         <tr
             v-for="item in mappedList"
             :key="item.id"
-            @click="openModal(item.id)"
             class="table-item"
             :class="{ 'table-item--active': item.id === personId }"
+            @click="setPersonId(item.id)"
         >
           <td>
             {{ item.name }}
@@ -59,24 +59,19 @@ export default {
       this.list = null;
       localStorage.removeItem('list');
     },
-    openModal(id) {
+    setPersonId(id) {
       this.personId = id;
-    },
-    closeModal() {
-      this.personId = null;
     },
     createNewPerson() {
       this.$router.push(`/person/${Number(Object.keys(this.list)[this.mappedList.length - 1]) + 1}`);
-      this.closeModal();
     },
     editPerson() {
       this.$router.push(`/person/${this.personId}`);
-      this.closeModal();
     },
     deletePerson() {
       delete this.list[this.personId];
       localStorage.list = JSON.stringify(this.list)
-      this.closeModal();
+      this.personId = null;
     },
   },
   created() {
