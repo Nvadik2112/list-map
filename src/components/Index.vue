@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!!list" class="main">
+  <div v-if="list" class="main">
     <table>
       <thead>
       <tr>
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     clearLocalStorage() {
-      this.list = null
+      this.list = null;
       localStorage.removeItem('list');
     },
     openModal(id) {
@@ -80,7 +80,7 @@ export default {
     },
   },
   created() {
-    this.list = {...JSON.parse(localStorage.list)};
+    this.list = JSON.parse(localStorage.list);
   },
 };
 </script>
