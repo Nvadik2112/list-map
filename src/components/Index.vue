@@ -1,6 +1,5 @@
 <template>
   <div v-if="!!list" class="main">
-    <button @click="clearLocalStorage">Очистить localStorage</button>
     <table>
       <thead>
       <tr>
@@ -28,6 +27,7 @@
       </tbody>
     </table>
     <div class="modal">
+      <button type="button" style="width: 200px;" @click="clearLocalStorage">Очистить localStorage</button>
       <div class="modal_item" @click="createNewPerson">
         Создать нового сотрудника
       </div>
@@ -113,7 +113,7 @@ export default {
 
   .modal {
     position: fixed;
-    top: 100px;
+    top: 50px;
     right: 20px;
     background-color: white;
     padding: 10px;
